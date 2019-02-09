@@ -74,23 +74,14 @@ namespace MusicWrapper.ApiWrappers
 			return await GetPaginatedResponse($"?method=user.getlovedtracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Song, limit, page);
 		}
 
-		public async Task<ApiResponse> GetUserTopArtists(string user, TopPeriod? period, int? limit, int? page)
+		public Task<ApiResponse> GetUserTopArtists(string user, int? period, int? limit, int? page)
 		{
-			return await GetPaginatedResponse($"?method=user.gettoptracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Artist, limit, page, period);
+			throw new NotImplementedException();
 		}
 
-		public async Task<ApiResponse> GetUserTopAlbums(string user, TopPeriod? period, int? limit, int? page)
-		{
-			return await GetPaginatedResponse($"?method=user.gettopalbums&user={user}&api_key={_appSecret}&format=json", ResponseType.Album, limit, page, period);
-		}
-
-		public async Task<ApiResponse> GetUserTopTracks(string user, TopPeriod? period, int? limit, int? page)
-		{
-			return await GetPaginatedResponse($"?method=user.gettoptracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Song, limit, page, period);
-		}
 
 		#region private helpers
-		private async Task<ApiResponse> GetPaginatedResponse(string request, ResponseType type, int? limit = null, int? page = null, TopPeriod? period = null)
+		private async Task<ApiResponse> GetPaginatedResponse(string request, ResponseType type, int? limit = null, int? page = null, int? period = null)
 		{
 			if (limit.HasValue)
 			{
@@ -102,7 +93,7 @@ namespace MusicWrapper.ApiWrappers
 			}
 			if (period.HasValue)
 			{
-				request += "&period=" + period.Value.GetFriendlyString();
+				request += "&period=" + period;
 			}
 
 			return await GetResponse(request, ResponseType.Song);

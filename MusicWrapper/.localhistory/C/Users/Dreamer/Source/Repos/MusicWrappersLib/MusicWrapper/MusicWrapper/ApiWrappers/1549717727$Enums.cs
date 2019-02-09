@@ -16,7 +16,7 @@
 	}
 	public static class EnumExtensions
 	{
-		public static string GetFriendlyString(this TopPeriod period)
+		private static string GetFriendlyString(this TopPeriod period)
 		{
 			switch (period)
 			{

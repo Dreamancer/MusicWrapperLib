@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MusicWrapper.ApiWrappers
+namespace MusicWrapper.Wrappers
 {
 	interface IMusicApiWrapper
 	{

@@ -51,7 +51,8 @@ namespace MusicWrapper.ApiWrappers
 
 		public async Task<ApiResponse> GetUserLibraryArtists(string userName, int? limit = null, int? page = null)
 		{
-			return await GetPaginatedResponse($"?method=library.getartists&api_key={_appSecret}&user={userName}&format=json", ResponseType.Song, limit, page);
+			throw new NotImplementedException();
+
 		}
 
 		public async Task<ApiResponse> GetUserArtistTracks(string userName, string artist, DateTime? startDate = null, DateTime? endDate = null, int? page = null)
@@ -65,48 +66,17 @@ namespace MusicWrapper.ApiWrappers
 			{
 				request += "&endTimestamp=" + ((DateTimeOffset)endDate).ToUnixTimeSeconds();
 			}
-
-			return await GetPaginatedResponse(request, ResponseType.Song, null, page);
-		}
-
-		public async Task<ApiResponse> GetUserLovedTracks(string user, int? limit = null, int? page = null)
-		{
-			return await GetPaginatedResponse($"?method=user.getlovedtracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Song, limit, page);
-		}
-
-		public async Task<ApiResponse> GetUserTopArtists(string user, TopPeriod? period, int? limit, int? page)
-		{
-			return await GetPaginatedResponse($"?method=user.gettoptracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Artist, limit, page, period);
-		}
-
-		public async Task<ApiResponse> GetUserTopAlbums(string user, TopPeriod? period, int? limit, int? page)
-		{
-			return await GetPaginatedResponse($"?method=user.gettopalbums&user={user}&api_key={_appSecret}&format=json", ResponseType.Album, limit, page, period);
-		}
-
-		public async Task<ApiResponse> GetUserTopTracks(string user, TopPeriod? period, int? limit, int? page)
-		{
-			return await GetPaginatedResponse($"?method=user.gettoptracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Song, limit, page, period);
-		}
-
-		#region private helpers
-		private async Task<ApiResponse> GetPaginatedResponse(string request, ResponseType type, int? limit = null, int? page = null, TopPeriod? period = null)
-		{
-			if (limit.HasValue)
-			{
-				request += "&limit=" + limit;
-			}
 			if (page.HasValue)
 			{
 				request += "&page=" + page;
 			}
-			if (period.HasValue)
-			{
-				request += "&period=" + period.Value.GetFriendlyString();
-			}
 
 			return await GetResponse(request, ResponseType.Song);
 		}
-		#endregion
+
+		public Task<ApiResponse> GetUserLovedTracks(string user, int? limit = null, int? page = null)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

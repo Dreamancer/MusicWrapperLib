@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace MusicWrapper.ApiWrappers
+namespace MusicWrapper.Wrappers
 {
 	public abstract class MusicApiWrapper : IMusicApiWrapper
 	{

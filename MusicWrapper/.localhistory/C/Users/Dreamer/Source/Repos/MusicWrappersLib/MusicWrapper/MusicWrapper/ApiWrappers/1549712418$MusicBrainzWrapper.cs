@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MusicWrapper.Enums;
 
-namespace MusicWrapper.ApiWrappers
+namespace MusicWrapper.Wrappers
 {
 	public class MusicBrainzWrapper : MusicApiWrapper
 	{

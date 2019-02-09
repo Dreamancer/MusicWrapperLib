@@ -79,14 +79,14 @@ namespace MusicWrapper.ApiWrappers
 			return await GetPaginatedResponse($"?method=user.gettoptracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Artist, limit, page, period);
 		}
 
-		public async Task<ApiResponse> GetUserTopAlbums(string user, TopPeriod? period, int? limit, int? page)
+		public Task<ApiResponse> GetUserTopAlbums(string user, TopPeriod? period, int? limit, int? page)
 		{
-			return await GetPaginatedResponse($"?method=user.gettopalbums&user={user}&api_key={_appSecret}&format=json", ResponseType.Album, limit, page, period);
+			throw new NotImplementedException();
 		}
 
-		public async Task<ApiResponse> GetUserTopTracks(string user, TopPeriod? period, int? limit, int? page)
+		public Task<ApiResponse> GetUserTopTracks(string user, TopPeriod? period, int? limit, int? page)
 		{
-			return await GetPaginatedResponse($"?method=user.gettoptracks&user={user}&api_key={_appSecret}&format=json", ResponseType.Song, limit, page, period);
+			throw new NotImplementedException();
 		}
 
 		#region private helpers
